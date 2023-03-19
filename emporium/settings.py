@@ -15,31 +15,33 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-k%c5bj_e9n1$*o!@&@w0ltgm431vl-j6&39lry0icjfln8yx%g"
+SECRET_KEY = "django-insecure-323j6%7!=rojwk9mbj@5fup42e41h*$!+^d8j_by$okxksn!ys"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS =['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-  "django.contrib.admin",
-  "django.contrib.auth",
-  "django.contrib.contenttypes",
-  "django.contrib.sessions",
-  "django.contrib.messages",
-  "django.contrib.staticfiles",
-  "store",
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "store",
+    'basket',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +67,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'store.views.categories',
+                'store.context_processors.categories',
+                'basket.context_processors.basket',
             ],
         },
     },
@@ -125,5 +128,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
